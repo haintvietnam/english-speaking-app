@@ -1,0 +1,837 @@
+/* Theory Page Specific Styles */
+
+/* Theory Header */
+.theory-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 6rem 0 4rem;
+  margin-top: 70px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.theory-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><path d="M0,200 Q250,100 500,200 T1000,200 L1000,0 L0,0 Z" fill="rgba(255,255,255,0.1)"/></svg>')
+    no-repeat bottom center;
+  background-size: cover;
+}
+
+.theory-header h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.theory-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Theory Container */
+.theory-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 20px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 3rem;
+  min-height: calc(100vh - 200px);
+}
+
+/* Sidebar */
+.theory-sidebar {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theory-nav h3 {
+  color: #2d3748;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.theory-nav ul {
+  list-style: none;
+}
+
+.theory-nav li {
+  margin-bottom: 0.5rem;
+}
+
+.theory-nav-link {
+  display: block;
+  color: #4a5568;
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+}
+
+.theory-nav-link:hover {
+  background-color: #f7fafc;
+  color: #667eea;
+  transform: translateX(5px);
+}
+
+.theory-nav-link.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-left-color: #4c51bf;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.2);
+}
+
+/* Main Content */
+.theory-content {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.theory-section {
+  padding: 3rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.theory-section:last-child {
+  border-bottom: none;
+}
+
+.theory-section h2 {
+  color: #2d3748;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theory-section h2 i {
+  color: #667eea;
+  font-size: 2rem;
+}
+
+.theory-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.theory-card:hover {
+  background: #f1f5f9;
+  transform: translateX(5px);
+}
+
+.theory-card h3 {
+  color: #2d3748;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.theory-card h4 {
+  color: #4a5568;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.theory-card h5 {
+  color: #667eea;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.theory-card p {
+  color: #4a5568;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.theory-card ul {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.theory-card li {
+  color: #4a5568;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+/* Info Grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.info-item {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.info-item i {
+  font-size: 2rem;
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.info-item h5 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2d3748;
+}
+
+.info-item p {
+  font-size: 0.9rem;
+  color: #4a5568;
+}
+
+/* Vowel Classification */
+.vowel-classification {
+  margin-top: 2rem;
+}
+
+.classification-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.class-item {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.class-item h5 {
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  font-size: 1.1rem;
+}
+
+.class-item ul {
+  list-style: none;
+  padding: 0;
+}
+
+.class-item li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  color: #4a5568;
+}
+
+.class-item li:last-child {
+  border-bottom: none;
+}
+
+/* Vowel Types */
+.vowel-types {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.vowel-type {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.vowel-type h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Sound Examples */
+.sound-examples {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.sound-item {
+  display: grid;
+  grid-template-columns: 60px 1fr 50px;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.sound-item:hover {
+  background: #e2e8f0;
+  transform: translateX(5px);
+}
+
+.sound-item .ipa {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #667eea;
+  text-align: center;
+  background: white;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+.sound-item .example {
+  color: #4a5568;
+  font-weight: 500;
+}
+
+/* Consonant Features */
+.consonant-features {
+  margin-top: 2rem;
+}
+
+.feature {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.feature h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.feature-examples {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.voiced,
+.voiceless {
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.voiced {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border-left: 4px solid #38b2ac;
+}
+
+.voiceless {
+  background: linear-gradient(135deg, #fed7e2 0%, #fbb6ce 100%);
+  border-left: 4px solid #e53e3e;
+}
+
+.voiced h5,
+.voiceless h5 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.voiced h5 {
+  color: #234e52;
+}
+
+.voiceless h5 {
+  color: #742a2a;
+}
+
+/* Difficult Sounds */
+.difficult-sounds {
+  margin-top: 2rem;
+}
+
+.sound-group {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #667eea;
+}
+
+.sound-group h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.pronunciation-tip {
+  background: linear-gradient(135deg, #fef9e7 0%, #f6e05e 100%);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.pronunciation-tip i {
+  color: #d69e2e;
+  font-size: 1.2rem;
+}
+
+.pronunciation-tip p {
+  margin: 0;
+  color: #744210;
+  font-weight: 500;
+}
+
+/* IPA Chart */
+.ipa-chart {
+  margin-top: 2rem;
+}
+
+.chart-section {
+  margin-bottom: 3rem;
+}
+
+.chart-section h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+.ipa-grid {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.vowels-grid {
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+}
+
+.diphthongs-grid {
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+
+.ipa-item {
+  background: white;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ipa-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.ipa-item .symbol {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.ipa-item .word {
+  color: #4a5568;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Stress Rules */
+.stress-rules {
+  margin-top: 2rem;
+}
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.rule-item {
+  background: white;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #667eea;
+}
+
+.rule-item h5 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.rule-item p {
+  color: #4a5568;
+  margin-bottom: 0.75rem;
+}
+
+.rule-item .examples {
+  background: #f8fafc;
+  padding: 0.75rem;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Stress Practice */
+.stress-practice {
+  margin-top: 2rem;
+}
+
+.stress-exercise {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.word-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.stress-word {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  border: 2px solid transparent;
+}
+
+.stress-word:hover {
+  background: #e2e8f0;
+  border-color: #667eea;
+  transform: translateY(-2px);
+}
+
+.stress-word.correct {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border-color: #38b2ac;
+}
+
+.stress-word.incorrect {
+  background: linear-gradient(135deg, #fed7e2 0%, #fbb6ce 100%);
+  border-color: #e53e3e;
+}
+
+.syllable {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #4a5568;
+}
+
+.stress-mark {
+  position: absolute;
+  top: -5px;
+  color: #667eea;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Intonation Patterns */
+.intonation-types {
+  margin-top: 2rem;
+}
+
+.pattern-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.pattern-item {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #667eea;
+}
+
+.pattern-item h5 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.pattern-item ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.pattern-item li {
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+}
+
+.intonation-example {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.intonation-example p {
+  margin-bottom: 0.5rem;
+  font-family: "Courier New", monospace;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Connected Features */
+.connected-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.feature-box {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.feature-box h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.feature-box p {
+  color: #4a5568;
+  margin-bottom: 1rem;
+}
+
+.feature-box .examples {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.feature-box .examples p {
+  margin-bottom: 0.5rem;
+  font-family: "Courier New", monospace;
+  color: #667eea;
+  font-weight: 500;
+}
+
+/* Problems List */
+.problems-list {
+  margin-top: 2rem;
+}
+
+.problem-item {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid #e53e3e;
+}
+
+.problem-item h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.problem-examples {
+  background: #f8fafc;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+}
+
+.problem-examples p {
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+}
+
+.problem-examples strong {
+  color: #2d3748;
+}
+
+/* Strategies */
+.strategies {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.strategy {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  border-top: 4px solid #38b2ac;
+  transition: all 0.3s ease;
+}
+
+.strategy:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.strategy i {
+  font-size: 2.5rem;
+  color: #38b2ac;
+  margin-bottom: 1rem;
+}
+
+.strategy h4 {
+  color: #2d3748;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.strategy p {
+  color: #4a5568;
+  font-size: 0.9rem;
+}
+
+/* Responsive Design for Theory */
+@media screen and (max-width: 1024px) {
+  .theory-container {
+    grid-template-columns: 250px 1fr;
+    gap: 2rem;
+  }
+
+  .theory-sidebar {
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .theory-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .theory-sidebar {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .theory-section {
+    padding: 2rem 1.5rem;
+  }
+
+  .theory-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .vowel-types {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .pattern-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .connected-features {
+    grid-template-columns: 1fr;
+  }
+
+  .strategies {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .theory-header {
+    padding: 4rem 0 2rem;
+  }
+
+  .theory-header h1 {
+    font-size: 2rem;
+  }
+
+  .theory-section {
+    padding: 1.5rem 1rem;
+  }
+
+  .sound-item {
+    grid-template-columns: 50px 1fr 40px;
+    gap: 0.5rem;
+  }
+
+  .ipa-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .word-list {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+}

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress - SpeakEasy</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-microphone"></i>
+        <span>SpeakEasy</span>
+      </div>
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="theory.html" class="nav-link">Speaking Theory</a>
+        </li>
+        <li class="nav-item">
+          <a href="practice.html" class="nav-link">Practice</a>
+        </li>
+        <li class="nav-item">
+          <a href="progress.html" class="nav-link active">Progress</a>
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Progress Header -->
+  <section class="theory-header">
+    <div class="container">
+      <h1>Your Learning Progress</h1>
+      <p>Track your journey to English speaking mastery</p>
+    </div>
+  </section>
+
+  <!-- Progress Dashboard -->
+  <section style="padding: 4rem 0;">
+    <div class="container">
+      <div class="progress-dashboard">
+        <!-- Overall Progress -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <h2 style="margin-bottom: 1.5rem; color: #2d3748;">
+            <i class="fas fa-chart-line" style="color: #667eea; margin-right: 0.5rem;"></i>
+            Overall Progress
+          </h2>
+          <div id="overall-progress" style="text-align: center;">
+            <div class="progress-circle" style="margin-bottom: 1rem;">
+              <div class="circle-progress" data-percentage="0">
+                <span class="percentage">0%</span>
+              </div>
+            </div>
+            <p id="progress-message" style="color: #4a5568;">
+              Start your learning journey by exploring the theory section!
+            </p>
+          </div>
+        </div>
+
+        <!-- Sections Completed -->
+        <div class="card" style="margin-bottom: 2rem;">
+          <h3 style="margin-bottom: 1.5rem; color: #2d3748;">
+            <i class="fas fa-check-circle" style="color: #38b2ac; margin-right: 0.5rem;"></i>
+            Completed Sections
+          </h3>
+          <div id="completed-sections" class="sections-grid">
+            <!-- Sections will be populated by JavaScript -->
+          </div>
+        </div>
+
+        <!-- Learning Stats -->
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+          <div class="card text-center">
+            <i class="fas fa-clock" style="font-size: 2rem; color: #667eea; margin-bottom: 1rem;"></i>
+            <h4 style="color: #2d3748; margin-bottom: 0.5rem;">Time Spent</h4>
+            <p id="time-spent" style="color: #4a5568; font-size: 1.2rem; font-weight: 600;">0 min</p>
+          </div>
+          <div class="card text-center">
+            <i class="fas fa-book-open" style="font-size: 2rem; color: #38b2ac; margin-bottom: 1rem;"></i>
+            <h4 style="color: #2d3748; margin-bottom: 0.5rem;">Sections Read</h4>
+            <p id="sections-read" style="color: #4a5568; font-size: 1.2rem; font-weight: 600;">0 / 8</p>
+          </div>
+          <div class="card text-center">
+            <i class="fas fa-calendar-day" style="font-size: 2rem; color: #e53e3e; margin-bottom: 1rem;"></i>
+            <h4 style="color: #2d3748; margin-bottom: 0.5rem;">Last Visit</h4>
+            <p id="last-visit" style="color: #4a5568; font-size: 1.2rem; font-weight: 600;">Never</p>
+          </div>
+        </div>
+
+        <!-- Next Steps -->
+        <div class="card">
+          <h3 style="margin-bottom: 1.5rem; color: #2d3748;">
+            <i class="fas fa-route" style="color: #d69e2e; margin-right: 0.5rem;"></i>
+            Recommended Next Steps
+          </h3>
+          <div id="next-steps">
+            <!-- Next steps will be populated by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <i class="fas fa-microphone"></i>
+            <span>SpeakEasy</span>
+          </div>
+          <p>Your comprehensive English speaking learning platform.</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="theory.html">Theory</a></li>
+            <li><a href="practice.html">Practice</a></li>
+            <li><a href="progress.html">Progress</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Learning Resources</h3>
+          <ul>
+            <li><a href="theory.html#phonetics">Phonetics Guide</a></li>
+            <li><a href="theory.html#pronunciation">Pronunciation Tips</a></li>
+            <li><a href="theory.html#exercises">Speaking Exercises</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 SpeakEasy. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/main.js"></script>
+  <script src="scripts/progress.js"></script>
+
+  <style>
+    .progress-circle {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .circle-progress {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: conic-gradient(#667eea 0deg,
+          #667eea var(--progress-deg, 0deg),
+          #e2e8f0 var(--progress-deg, 0deg),
+          #e2e8f0 360deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .circle-progress::before {
+      content: '';
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background: white;
+      position: absolute;
+    }
+
+    .percentage {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #2d3748;
+      z-index: 1;
+      position: relative;
+    }
+
+    .sections-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .section-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    .section-item.completed {
+      background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+      border-left: 4px solid #38b2ac;
+    }
+
+    .section-item i {
+      font-size: 1.2rem;
+    }
+
+    .section-item.completed i {
+      color: #38b2ac;
+    }
+
+    .section-item:not(.completed) i {
+      color: #a0aec0;
+    }
+
+    .next-step {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .next-step:hover {
+      background: #e2e8f0;
+      transform: translateX(5px);
+    }
+
+    .next-step i {
+      font-size: 1.5rem;
+      color: #667eea;
+    }
+
+    .next-step-content h4 {
+      margin-bottom: 0.25rem;
+      color: #2d3748;
+    }
+
+    .next-step-content p {
+      color: #4a5568;
+      margin: 0;
+      font-size: 0.9rem;
+    }
+  </style>
+</body>
+
+</html>
