@@ -5,118 +5,333 @@
   font-family: sans-serif;
 }
 
-button{
-    appearance: none;
-    border: none;
-    background: none;
-    outline: none;
-    cursor: pointer;
+button {
+  appearance: none;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
 }
 
 body {
   background-color: #eee;
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 4rem 2rem;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
-.mic-toggle{
-    position: relative;
-    display: block;
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    background-color: crimson;
-    margin-bottom: 4rem;
+.chatbot-container {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 0 auto;
+}
+
+.chatbot-container h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.chat-display {
+  height: 300px;
+  overflow-y: auto;
+  border: 2px solid #f0f0f0;
+  border-radius: 15px;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  background: #fafafa;
+}
+
+.message {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 15px;
+  max-width: 80%;
+  word-wrap: break-word;
+}
+
+.bot-message {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-right: auto;
+}
+
+.user-message {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  margin-left: auto;
+}
+
+.speaker {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.ai-selector {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.ai-selector label {
+  font-weight: bold;
+  margin-right: 1rem;
+  color: #666;
+}
+
+.ai-selector select {
+  padding: 0.5rem 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 25px;
+  background: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.ai-selector select:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.settings-panel {
+  background: #f8f9fa;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 2px solid #e9ecef;
+}
+
+.settings-panel h3 {
+  margin-bottom: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.setting-group {
+  margin-bottom: 1.5rem;
+}
+
+.setting-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.setting-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.setting-group input:focus {
+  border-color: #667eea;
+  outline: none;
+}
+
+.setting-group small {
+  display: block;
+  margin-top: 0.5rem;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.setting-group small a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+.setting-group small a:hover {
+  text-decoration: underline;
+}
+
+.save-settings {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.save-settings:hover {
+  transform: translateY(-2px);
+}
+
+.settings-toggle {
+  position: relative;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #6c757d;
+  transition: all 0.3s ease;
+}
+.mic-toggle {
+  position: relative;
+  display: block;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: crimson;
+  transition: all 0.3s ease;
+}
+
+.call-toggle,
+.speaker-toggle {
+  position: relative;
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: #4caf50;
+  transition: all 0.3s ease;
+}
+
+.call-toggle.on-call {
+  background-color: #f44336;
+}
+
+.speaker-toggle.muted {
+  background-color: #757575;
+}
+
+.status-display {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.status-display.listening {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.status-display.processing {
+  background: #fff3e0;
+  color: #f57c00;
+}
+
+.status-display.speaking {
+  background: #e8f5e8;
+  color: #388e3c;
 }
 
 .mic-toggle:after,
-.mic-toggle:before{
-    --pad: 0rem
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: 0;
-    top: var(--pad);
-    left: var(--pad);
-    right: var(--pad);
-    bottom: var(--pad);
-    border-radius: 50%;
-    background-color: rgba(220, 20, 60, 0.2);
-    
+.mic-toggle:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background-color: rgba(220, 20, 60, 0.2);
+  transform: scale(1);
+  opacity: 0;
+  transition: all 0.3s ease;
 }
 
-.mic-toggle:after{
-    transition: 0.4s;
+.mic-toggle:before {
+  animation: pulse 2s infinite;
 }
 
-.mic-toggle:before{
-    transition: 0.2s;
+.mic-toggle.is-recording:before,
+.mic-toggle.is-recording:after {
+  opacity: 1;
+  animation: pulse 1s infinite;
 }
 
-.mic-toggle:hover:before{
-    --pad:-1rem;
+.mic-toggle .material-icons,
+.call-toggle .material-icons,
+.speaker-toggle .material-icons {
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 2rem;
 }
 
-.mic-toggle:hover:after{
-    --pad: -2rem;
+.call-toggle .material-icons,
+.speaker-toggle .material-icons {
+  font-size: 1.5rem;
 }
 
-.mic-toggle span{
-    position: relative;
-    z-index: 1;
-    color: #fff;
-    font-size: 6rem;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
 }
 
-.mic-toggle.is-recording:after{
-    animation: smoothPadAfter 0.6s ease-in alternate-reverse forwards infinite ;
-}
+/* Responsive design */
+@media (max-width: 768px) {
+  .chatbot-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
 
-.mic-toggle.is-recording:before{
-    animation: smoothPadBefore 0.6s ease-in alternate-reverse forwards infinite ;
-}
+  .controls {
+    gap: 1rem;
+  }
 
-@keyframes smoothPadAfter {
-    0%{
-        top: -2rem;
-        left: -2rem;
-        right: -2rem;
-        bottom: -2rem;
-    }
-    100%{
-        top: -1rem;
-        left: -1rem;
-        right: -1rem;
-        bottom: -1rem;
-    }
-}
+  .mic-toggle {
+    width: 5rem;
+    height: 5rem;
+  }
 
-@keyframes smoothPadBefore {
-    0%{
-        top: -1rem;
-        left: -1rem;
-        right: -1rem;
-        bottom: -1rem;
-    }
-    100%{
-        top: -0.5rem;
-        left: -0.5rem;
-        right: -0.5rem;
-        bottom: -0.5rem;
-    }
+  .call-toggle,
+  .speaker-toggle {
+    width: 3rem;
+    height: 3rem;
+  }
 }
 
 .playback {
-    margin-bottom: 1rem;
-    box-shadow: 0px 0px 1rem rgb(0, 0, 0, 0.2);
-    border-radius: 999px;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0px 1rem rgb(0, 0, 0, 0.2);
+  border-radius: 999px;
+  display: none;
 }
 
 .is-hidden {
-    display: none;
+  display: none;
 }

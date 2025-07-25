@@ -1,24 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Audio Recorder</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="styles/example.css" />
-  </head>
-  <body>
-    <main>
-      <button class="mic-toggle" id="mic">
-        <span class="material-icons">mic</span>
-      </button>
 
-      <audio class="playback" controls></audio>
-    </main>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audio Recorder</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/example.css" />
+</head>
 
-    <script src="scripts/exmaple.js"></script>
-  </body>
+<body>
+  <main>
+    <div class="chatbot-container">
+      <h1>Voice Chatbot Assistant</h1>
+
+      <div class="chat-display" id="chatDisplay">
+        <div class="message bot-message">
+          <span class="speaker">🤖 Assistant:</span>
+          <span class="text">Hello! I'm your voice assistant. Click the microphone to start speaking.</span>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button class="mic-toggle" id="mic">
+          <span class="material-icons">mic</span>
+        </button>
+
+        <button class="call-toggle" id="callBtn">
+          <span class="material-icons">phone</span>
+        </button>
+
+        <button class="speaker-toggle" id="speakerBtn">
+          <span class="material-icons">volume_up</span>
+        </button>
+
+        <button class="settings-toggle" id="settingsBtn">
+          <span class="material-icons">settings</span>
+        </button>
+      </div>
+
+      <div class="ai-selector">
+        <label>AI Assistant:</label>
+        <select id="aiSelect">
+          <option value="local">Local AI (Built-in)</option>
+          <option value="openai">OpenAI GPT</option>
+          <option value="azure">Azure AI</option>
+          <option value="alan">Alan AI</option>
+        </select>
+      </div>
+
+      <div class="settings-panel" id="settingsPanel" style="display: none;">
+        <h3>AI Configuration</h3>
+
+        <div class="setting-group">
+          <label for="openaiKey">OpenAI API Key:</label>
+          <input type="password" id="openaiKey" placeholder="sk-...">
+          <small>Get from: <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></small>
+        </div>
+
+        <div class="setting-group">
+          <label for="azureKey">Azure Speech Key:</label>
+          <input type="password" id="azureKey" placeholder="Your Azure key">
+          <label for="azureRegion">Azure Region:</label>
+          <input type="text" id="azureRegion" placeholder="e.g., eastus">
+          <small>Get from: <a href="https://portal.azure.com" target="_blank">Azure Portal</a></small>
+        </div>
+
+        <div class="setting-group">
+          <label for="alanKey">Alan AI Key:</label>
+          <input type="password" id="alanKey" placeholder="Your Alan project key">
+          <small>Get from: <a href="https://studio.alan.app" target="_blank">Alan Studio</a></small>
+        </div>
+
+        <button class="save-settings" id="saveSettings">Save Settings</button>
+      </div>
+
+      <div class="status-display" id="statusDisplay">
+        <span>Ready to listen...</span>
+      </div>
+
+      <audio class="playback" id="playback" controls style="display: none;"></audio>
+    </div>
+  </main>
+
+  <script src="scripts/exmaple.js"></script>
+</body>
+
 </html>
