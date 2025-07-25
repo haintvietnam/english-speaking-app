@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.background {
+  background-image: url("https://as2.ftcdn.net/v2/jpg/01/42/94/33/1000_F_142943304_13dIb09RsfaK7rquMwtVy8d2kmo3hdgY.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  background-color: rgba(0, 0, 0, 0.65);
+  padding: 60px;
+  width: 400px;
+  height: 410px;
+  border-radius: 8px;
+  color: white;
+}
+
+.form-container h2 {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  background-color: #333;
+  border: none;
+  color: white;
+  border-radius: 4px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #e50914;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+.options label {
+  display: flex;
+  align-items: center;
+}
+
+.options a {
+  color: #b3b3b3;
+  text-decoration: none;
+}
+
+.signup {
+  margin-top: 60px;
+  font-size: 14px;
+}
+
+.signup a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.signin {
+  margin-top: 100px;
+  font-size: 14px;
+}
