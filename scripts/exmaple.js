@@ -32,8 +32,9 @@ class VoiceChatbot {
     this.recognition = null;
     this.synthesis = window.speechSynthesis;
     this.currentUtterance = null;
-    this.currentAI = 'local'; // 'local', 'openai', 'azure', 'alan'
+    this.currentAI = 'gemini'; // Changed default to 'gemini'
     this.aiConfig = {
+      gemini: { apiKey: '', model: 'gemini-2.0-flash' },
       openai: { apiKey: null, model: 'gpt-3.5-turbo' },
       azure: { speechKey: null, region: null },
       alan: { key: null }
@@ -42,7 +43,7 @@ class VoiceChatbot {
 
   setupAIAssistants() {
     // Setup multiple AI assistant options
-    this.setupLocalAI();
+    this.setupGeminiAI();
     this.setupOpenAI();
     this.setupAzureAI();
     this.setupAlanAI();
@@ -71,11 +72,13 @@ class VoiceChatbot {
   }
 
   saveSettings() {
+    const geminiKey = document.querySelector("#geminiKey").value;
     const openaiKey = document.querySelector("#openaiKey").value;
     const azureKey = document.querySelector("#azureKey").value;
     const azureRegion = document.querySelector("#azureRegion").value;
     const alanKey = document.querySelector("#alanKey").value;
 
+    if (geminiKey) localStorage.setItem('gemini-api-key', geminiKey);
     if (openaiKey) localStorage.setItem('openai-api-key', openaiKey);
     if (azureKey) localStorage.setItem('azure-speech-key', azureKey);
     if (azureRegion) localStorage.setItem('azure-region', azureRegion);
@@ -89,11 +92,13 @@ class VoiceChatbot {
   }
 
   loadSettings() {
+    const geminiKey = localStorage.getItem('gemini-api-key');
     const openaiKey = localStorage.getItem('openai-api-key');
     const azureKey = localStorage.getItem('azure-speech-key');
     const azureRegion = localStorage.getItem('azure-region');
     const alanKey = localStorage.getItem('alan-key');
 
+    if (geminiKey) document.querySelector("#geminiKey").value = geminiKey;
     if (openaiKey) document.querySelector("#openaiKey").value = openaiKey;
     if (azureKey) document.querySelector("#azureKey").value = azureKey;
     if (azureRegion) document.querySelector("#azureRegion").value = azureRegion;
@@ -253,6 +258,9 @@ class VoiceChatbot {
 
     // Route to appropriate AI assistant
     switch (this.currentAI) {
+      case 'gemini':
+        this.processWithGemini(input);
+        break;
       case 'openai':
         this.processWithOpenAI(input);
         break;
@@ -267,7 +275,57 @@ class VoiceChatbot {
     }
   }
 
-  // Local AI Processing (your existing logic)
+  // Gemini AI Integration
+  async processWithGemini(input) {
+    if (!this.aiConfig.gemini.apiKey) {
+      this.addMessage("Gemini API key not configured. Please add your API key in settings.", 'bot');
+      this.processWithLocalAI(input);
+      return;
+    }
+
+    try {
+      const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${this.aiConfig.gemini.model}:generateContent?key=${this.aiConfig.gemini.apiKey}`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          contents: [{
+            parts: [{
+              text: `You are a helpful English learning assistant. Keep responses conversational, educational, and under 100 words. User said: "${input}"`
+            }]
+          }],
+          generationConfig: {
+            temperature: 0.7,
+            maxOutputTokens: 150,
+            topP: 0.8,
+            topK: 40
+          },
+
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error(`Gemini API error: ${response.status} ${response.statusText}`);
+      }
+
+      const data = await response.json();
+
+      if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+        const aiResponse = data.candidates[0].content.parts[0].text;
+        this.addMessage(aiResponse, 'bot');
+        this.speak(aiResponse);
+      } else {
+        throw new Error('No valid response from Gemini');
+      }
+    } catch (error) {
+      console.error('Gemini API error:', error);
+      this.addMessage("Sorry, I'm having trouble connecting to Gemini. Let me use my basic responses.", 'bot');
+      this.processWithLocalAI(input);
+    }
+  }
+
+  // Local AI Processing (fallback)
   processWithLocalAI(input) {
     setTimeout(() => {
       const response = this.generateResponse(input);
@@ -370,9 +428,13 @@ class VoiceChatbot {
   }
 
   // Setup methods for each AI service
-  setupLocalAI() {
-    // Your existing local AI is already set up
-    console.log("Local AI ready");
+  setupGeminiAI() {
+    // Gemini setup - requires API key
+    const apiKey = localStorage.getItem('gemini-api-key');
+    if (apiKey) {
+      this.aiConfig.gemini.apiKey = apiKey;
+      console.log("Gemini AI configured");
+    }
   }
 
   setupOpenAI() {
@@ -436,7 +498,9 @@ class VoiceChatbot {
     this.currentAI = aiType;
     this.addMessage(`Switched to ${aiType} assistant mode.`, 'bot');
     this.updateStatus(`Using ${aiType} AI assistant`);
-  } generateResponse(input) {
+  }
+
+  generateResponse(input) {
     // Simple chatbot responses - you can integrate with AI APIs here
     const responses = {
       greeting: [

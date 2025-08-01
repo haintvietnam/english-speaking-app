@@ -42,10 +42,11 @@
       <div class="ai-selector">
         <label>AI Assistant:</label>
         <select id="aiSelect">
-          <option value="local">Local AI (Built-in)</option>
+          <option value="gemini">Google Gemini (Default)</option>
           <option value="openai">OpenAI GPT</option>
           <option value="azure">Azure AI</option>
           <option value="alan">Alan AI</option>
+          <option value="local">Local AI (Fallback)</option>
         </select>
       </div>
 
@@ -53,11 +54,17 @@
         <h3>AI Configuration</h3>
 
         <div class="setting-group">
+          <label for="geminiKey">Google Gemini API Key:</label>
+          <input type="password" id="geminiKey" placeholder="Your Gemini API key">
+          <small>Get from: <a href="https://makersuite.google.com/app/apikey" target="_blank">Google AI Studio</a> (Free
+            tier available)</small>
+        </div>
+
+        <div class="setting-group">
           <label for="openaiKey">OpenAI API Key:</label>
           <input type="password" id="openaiKey" placeholder="sk-...">
           <small>Get from: <a href="https://platform.openai.com/api-keys" target="_blank">OpenAI Platform</a></small>
         </div>
-
         <div class="setting-group">
           <label for="azureKey">Azure Speech Key:</label>
           <input type="password" id="azureKey" placeholder="Your Azure key">
