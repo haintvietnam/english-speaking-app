@@ -2,19 +2,69 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
-button {
-  appearance: none;
-  border: none;
-  background: none;
-  outline: none;
-  cursor: pointer;
+/* Navigation Styles */
+.navbar {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-logo i {
+  font-size: 1.8rem;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+  opacity: 0.8;
+}
+
+button{
+    appearance: none;
+    border: none;
+    background: none;
+    outline: none;
+    cursor: pointer;
 }
 
 body {
   background-color: #eee;
+  padding-top: 70px; /* Account for fixed navbar */
 }
 
 main {
@@ -36,13 +86,19 @@ main {
 }
 
 .chatbot-container h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 2rem;
-  font-size: 1.8rem;
+    text-align: center;
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
 }
 
-.chat-display {
+.chatbot-subtitle {
+    text-align: center;
+    color: #666;
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}.chat-display {
   height: 300px;
   overflow-y: auto;
   border: 2px solid #f0f0f0;
